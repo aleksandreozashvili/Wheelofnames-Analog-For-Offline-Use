@@ -1,0 +1,6 @@
+{
+  "name": "Wheel of Names",
+  "description": "An offline, interactive wheel spinner app. Create, save, and spin custom wheels of names with satisfying physical animation and sound cues entirely offline.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
