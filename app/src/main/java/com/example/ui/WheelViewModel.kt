@@ -222,9 +222,9 @@ class WheelViewModel(
 class WheelViewModelFactory(private val context: Context) : ViewModelProvider.Factory {
     @Suppress("UNCHECKED_CAST")
     override fun <T : ViewModel> create(modelClass: Class<T>): T {
-        val db = AppDatabase.getDatabase(context)
+        val db = AppDatabase.getDatabase(context.applicationContext)
         val repo = WheelRepository(db.wheelDao())
-        val synth = SoundSynthesizer(context)
+        val synth = SoundSynthesizer()
         return WheelViewModel(repo, synth) as T
     }
 }

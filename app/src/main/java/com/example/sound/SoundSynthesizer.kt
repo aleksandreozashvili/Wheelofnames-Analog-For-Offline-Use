@@ -10,7 +10,7 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlin.math.sin
 
-class SoundSynthesizer(private val context: Context? = null) {
+class SoundSynthesizer {
     private val sampleRate = 22050
     private val scope = CoroutineScope(Dispatchers.IO)
     var isSoundEnabled = true
@@ -117,15 +117,6 @@ class SoundSynthesizer(private val context: Context? = null) {
             )
             .setBufferSizeInBytes(bufferSize)
             .setTransferMode(AudioTrack.MODE_STATIC)
-
-        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.S && context != null) {
-            val attributionContext = if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.R) {
-                context.createAttributionContext("audio")
-            } else {
-                context
-            }
-            builder.setContext(attributionContext)
-        }
 
         val audioTrack = builder.build()
             
